@@ -142,3 +142,5 @@ pytest --cov=src/app --cov-report=html
 
 This will create an `htmlcov` directory containing a visual report of the test coverage, which can be opened in a browser.
 
+MVP demostration:
+https://youtu.be/Dq2FcwWGRtU

@@ -1,146 +1,148 @@
-# Readme
+# README 📝
 
----
+🎥 Video preview of the MVP
 
-## Code Coverage
+[![Guarda il video](https://img.youtube.com/vi/Dq2FcwWGRtU/maxresdefault.jpg)](https://youtu.be/Dq2FcwWGRtU)
+
+## 📊 Code Coverage
 
 ![Coverage](coverage.svg)
 
-[View Full Coverage Report](https://code7crusaders.github.io/MVP/)
+🔍 [View Full Coverage Report](https://code7crusaders.github.io/MVP/)
 
-## Project Overview
+## 🏗 Project Overview
 
-This project is a React Flask-based web application that provides API endpoints for handling chat-related functionalities. It is designed to be lightweight, easy to set up, and extendable.
+This project is a **React Flask-based web application** that provides API endpoints for handling chat-related functionalities. It is designed to be **lightweight**, **easy to set up**, and **extendable**.
 
-## Project Structure
+## 🗂 Project Structure
 
 ```
-src/
-│── app/
-│   ├── main.py               # Main Flask app
-│   ├── controllers/
-│   │   ├── chat_controller.py # Controller for chat-related logic
-tests/
-├── test_routes.py            # Tests for routes
+MVP/
+├── .pytest_cache/
+├── .vscode/
+├── docs/
+├── htmlcov/
+├── react-app/
+├── SQL/
+├── src/
+│   └── app/
+│       ├── __pycache__/
+│       ├── adapters/
+│       ├── config/
+│       ├── controllers/
+│       ├── dependencies/
+│       ├── dto/
+│       ├── entities/
+│       ├── models/
+│       ├── ports/
+│       ├── repositories/
+│       ├── services/
+│       ├── uploads/
+│       ├── usecases/
+│       ├── utils/
+│       ├── __init__.py
+│       ├── main.py
+│       └── __init__.py
+│       └── README.md  # 🚀 README for the src/app directory
+├── tests/
+│   └── README.md  # 🧪 Tests directory (unit and integration)
+├── UML/ # Directory for UML diagrams (e.g., using StarUML) 📐
+├── venv/
+├── .coverage
+├── .env
+├── .gitignore
+├── coverage.svg
+├── coverage.xml
+├── docker-compose.yml
+├── Dockerfile 🐳 # Dockerfile for containerization
+├── pytest.ini # Configuration file for pytest
+├── README.md      # 📌 Main README for the project
+└── requirements.txt # Python dependencies 📦
 ```
 
-## Setup Instructions
 
-### 1. Clone the Repository
+## 🚀 Running the Project Locally
 
-```bash
-git clone <repository_url>
-cd <repository_folder>
-```
+To get the application running on your local machine, follow these steps:
 
-### 2. Create and Activate a Virtual Environment
+### **Frontend Setup (React)**
+1. **Navigate to the React project folder:**  
+   ```bash
+   cd react-app
+   ```
+2. **Install dependencies:**  
+   ```bash
+   npm install
+   ```
+3. **Start the development server:**  
+   ```bash
+   npm run dev
+   ```
+   🖥 The React app will be available at [http://localhost:3000](http://localhost:3000).
 
-#### On Windows:
-```bash
-python -m venv venv
-venv\Scripts\activate
-```
+### **Backend Setup (Flask)**
+1. **Activate the virtual environment:**  
+   On macOS/Linux:
+   ```bash
+   source venv/bin/activate
+   ```
+   On Windows:
+   ```bash
+   venv\Scripts\activate
+   ```
+2. **Install required dependencies:**  
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Run the Flask application:**  
+   ```bash
+   python main.py
+   ```
+   🔗 The backend will be accessible at [http://127.0.0.1:5001](http://127.0.0.1:5001).
 
-#### On macOS/Linux:
-```bash
-python -m venv venv
-source venv/bin/activate
-```
+## 🐳 Running with Docker
 
-### 3. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Running the Flask App
-
-```bash
-python src/app/main.py
-```
-
-The app will be accessible at `http://127.0.0.1:5001`.
-
-### 5. Running Tests
-
-To run the test suite:
-
-```bash
-pytest tests/
-```
-
-This will execute the test cases in `tests/test_routes.py`.
-
-### 6. Checking Test Coverage
-
-To measure the test coverage, use the following command:
-
-```bash
-pytest --cov=src/app
-```
-
-This will generate a report showing the coverage percentage of the application code.
-
-## API Endpoints
-
-### **1. GET /**
-
-**Description:** Returns a simple welcome message.
-
-**Response:**
-```json
-{
-  "message": "Welcome to the Flask API!"
-}
-```
-
-### **2. POST /api/get_messages**
-
-**Description:** Accepts a `quantity` parameter in the request body and returns a list of dummy messages.
-
-**Request (JSON body):**
-```json
-{
-  "quantity": 3
-}
-```
-
-**Response:**
-```json
-[
-  {"id": 0, "text": "Message 0"},
-  {"id": 1, "text": "Message 1"},
-  {"id": 2, "text": "Message 2"}
-]
-```
-
-**Error Response (if no quantity is provided):**
-```json
-{
-  "status": "error",
-  "message": "Invalid request body"
-}
-```
-
-## Running with Docker
-
-To run the application using Docker:
+If you prefer to use Docker, you can easily spin up the application with:
 
 ```bash
 docker-compose up --build
 ```
 
-This will build the Docker images and start the containers as defined in the `docker-compose.yml` file. The application will be accessible at `http://127.0.0.1:5001`.
+This command will build the Docker images and start the containers as defined in the `docker-compose.yml` file.
 
-## Test Coverage
+## 🧪 Tests and Code Coverage
 
-To ensure code quality, this project includes test coverage analysis. To generate a test coverage report:
+To run the tests from the project root path:
+
+```bash
+pytest ./tests/
+```
+To generate an HTML report for code coverage:
 
 ```bash
 pytest --cov=src/app --cov-report=html
 ```
+Open the htmlcov/index.html file in your browser to view the full report.
 
-This will create an `htmlcov` directory containing a visual report of the test coverage, which can be opened in a browser.
+📂 This will create an `htmlcov` directory containing a visual report of the test coverage, which you can open in your browser.
 
-MVP demostration:
-https://youtu.be/Dq2FcwWGRtU
+## 🔑 Environment Variables
+
+Make sure to configure your `.env` file properly. Add the following variables (remember to replace the placeholder values with your actual secrets and **do not commit the file** to version control):
+
+```
+LANGSMITH_TRACING=true
+LANGSMITH_ENDPOINT="https://api.smith.langchain.com"
+LANGSMITH_PROJECT="Ergon-Assistente-Virtuale-MVP"
+
+OPENAI_API_KEY="your_openai_api_key"
+
+DB_NAME="postgres"
+DB_USER="postgres"
+DB_PASSWORD="your_database_password"
+DB_HOST="localhost"
+DB_PORT="5432"
+
+JWT_SECRET_KEY="your_secret_key"
+```
+
